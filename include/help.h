@@ -7,5 +7,8 @@
 using namespace std;
 
 void printHelp(string unknowArgs);
+void printUserHelp();
+void printTooMuchArguments();
+void printTooFewArguments();
 
 #endif

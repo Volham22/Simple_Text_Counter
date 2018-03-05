@@ -44,6 +44,7 @@ void Counter::PrintStats()
     else
     {
         cout << "ERROR: Unable to open file !" << endl;
+        printHelp(Path);
         return;
     }
 }
