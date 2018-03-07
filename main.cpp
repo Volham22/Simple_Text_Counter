@@ -13,7 +13,7 @@ int main(int argc, char* argv[])
     for(int i = 0; i<argc; i++)
         args[i] = argv[i];
 
-    if(argc > 2)
+    if(argc > 3)
     {
         printTooMuchArguments();
         return 0;
@@ -29,10 +29,16 @@ int main(int argc, char* argv[])
         printUserHelp();
         return 0;
     }
+    else if(args[2] == "number" || args[2] == "NUMBER")
+    {
+        Counter count(args[1]);
+        count.PrintStatsNumbers();
+        return 0;
+    }
     else
     {
         Counter count(args[1]);
-        count.PrintStats();
+        count.PrintStatsLetter();
         return 0;
     }
 

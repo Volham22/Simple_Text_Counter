@@ -13,17 +13,24 @@ class Counter
 {
     public:
     Counter(string filePath);
-    void PrintStats();
+    void PrintStatsLetter();
+    void PrintStatsNumbers();
     
     private:
     string Path;
     string RawText;
     int LetterCount[26];
+    int NumbersCount[10];
     int LineCnt = 0;
-    char Letters [26] = 
+
+    const char Letters [26] = 
     {
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
         'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+    };
+    const char Numbers [10] =
+    {
+        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
     };
 
     bool FileExist(ifstream &flux);

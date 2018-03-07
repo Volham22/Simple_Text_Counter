@@ -7,6 +7,7 @@
 
 using namespace std;
 
-void Counting(ifstream &flux, string &RawText, int &LineCnt, int *LetterCount[]);
+void CountingLetters(ifstream &flux, string &RawText, int &LineCnt, int *LetterCount[]);
+void CountingNumbers(ifstream &flux, string &RawText, int &LineCnt, int *NumbersCount[]);
 
 #endif

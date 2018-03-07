@@ -21,7 +21,7 @@ bool Counter::FileExist(ifstream &flux)
 }
 
 
-void Counter::PrintStats()
+void Counter::PrintStatsLetter()
 {
     ifstream Flux(Path.c_str());
 
@@ -34,17 +34,48 @@ void Counter::PrintStats()
             p_LetterCount[i] = &LetterCount[i];
         }
 
-        Counting(Flux, RawText, LineCnt, p_LetterCount);
+        CountingLetters(Flux, RawText, LineCnt, p_LetterCount);
 
         for(int i = 0; i<26; i++)
         {
             cout << Letters[i] << " : " << LetterCount[i] << endl;
         }
+
+        cout << "Number of lines found in " << Path << " " << LineCnt << endl;
+
     }
     else
     {
         cout << "ERROR: Unable to open file !" << endl;
         printHelp(Path);
-        return;
+    }
+}
+
+void Counter::PrintStatsNumbers()
+{
+    ifstream Flux(Path.c_str());
+
+    if(FileExist(Flux))
+    {
+        int *p_NumbersCount[9];
+
+        for(int i = 0; i<9; i++)
+        {
+            p_NumbersCount[i] = &NumbersCount[i];
+        }
+
+        CountingNumbers(Flux, RawText, LineCnt, p_NumbersCount);
+
+        for(int i = 0; i<10; i++)
+        {
+            cout << Numbers[i] << " : " << NumbersCount[i] << endl;
+        }
+
+        cout << "Number of lines found in " << Path << " " << LineCnt << endl;
+    }
+    else
+    {
+        cout << "ERROR: Unable to open file !" << endl;
+        printHelp(Path);
     }
 }

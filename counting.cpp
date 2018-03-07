@@ -1,6 +1,6 @@
 #include "include/counting.h"
 
-void Counting(ifstream &flux, string &RawText, int &LineCnt, int *LetterCount[])
+void CountingLetters(ifstream &flux, string &RawText, int &LineCnt, int *LetterCount[])
 {
 
     const char LetterFindLow [] = 
@@ -26,7 +26,6 @@ void Counting(ifstream &flux, string &RawText, int &LineCnt, int *LetterCount[])
     {
         LineCnt++;
         RawText += tempText;
-        //cout << RawText << endl;
     }
 
     /* Count each letters */
@@ -58,5 +57,39 @@ void Counting(ifstream &flux, string &RawText, int &LineCnt, int *LetterCount[])
 
         LetterFound = false;
 
+    }
+}
+
+void CountingNumbers(ifstream &flux, string &RawText, int &LineCnt, int *NumbersCount[])
+{
+    const char NumbersFind [] = 
+    {
+        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
+    };
+
+    /*Load lines into a string */
+    string tempText;
+
+    cout << "Loading file ..." << endl;
+
+    while(getline(flux, tempText))
+    {
+        LineCnt++;
+        RawText += tempText;
+    }
+
+    /* Counting numbers each numbers */
+    for(int i = 0; i<RawText.length(); i++)
+    {
+        char tempLetter = RawText[i];
+
+        for(int y = 0; y<10; y++)
+        {
+            if(tempLetter == NumbersFind[y])
+            {
+                *NumbersCount[y] += 1;
+                break;
+            }
+        }
     }
 }
