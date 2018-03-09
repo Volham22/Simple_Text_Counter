@@ -35,11 +35,16 @@ int main(int argc, char* argv[])
         count.PrintStatsNumbers();
         return 0;
     }
+    else if(args[2] == "all" || args[2] == "ALL")
+    {
+        Counter count(args[1]);
+        count.PrintStatsAll();
+        return 0;
+    }
     else
     {
         Counter count(args[1]);
         count.PrintStatsLetter();
         return 0;
     }
-
 }

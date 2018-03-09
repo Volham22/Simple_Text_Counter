@@ -93,3 +93,67 @@ void CountingNumbers(ifstream &flux, string &RawText, int &LineCnt, int *Numbers
         }
     }
 }
+
+void CountingAll(ifstream &flux, string &RawText, int &LineCnt, vector<char> &CharList, vector<int> &FileCount)
+{
+    bool inVector = false;
+
+    /* Load lines into a string */
+    string tempText;
+
+    cout << "Loading file ..." << endl;
+
+    while(getline(flux, tempText))
+    {
+        RawText += tempText;
+        LineCnt ++;
+    }
+
+    /* Counting and Adding each char in vector */
+    for(int i = 0; i<RawText.length(); i++)
+    {
+        char tempChar = RawText[i];
+
+        /* Finding all differents char in Files */
+        for(int y = 0; y<CharList.size(); y++)
+        {
+            if(tempChar == CharList[y])
+            {
+                inVector = true;
+                break;
+            }
+            else
+            {
+                inVector = false;
+            }
+        }
+
+        if(!inVector)
+        {
+            CharList.push_back(tempChar);
+        }
+    }
+
+    cout << "Found : " << CharList.size() << " differents characters in file, counting ..." << endl;
+
+    /* Adding int according to the number of char in Charlist */ 
+    for(int i = 0; i<CharList.size(); i++)
+    {
+        FileCount.push_back(0);
+    }
+
+    /* Counting each char in file */
+    for(int i = 0; i<RawText.length(); i++)
+    {
+        char tempChar = RawText[i];
+
+        for(int y = 0; y<CharList.size(); y++)
+        {
+            if(tempChar == CharList[y])
+            {
+                FileCount[y]++;
+                break;
+            }
+        }
+    }
+}

@@ -40,13 +40,17 @@ $ ./Text_Counter
 Text counter is very easy to use, type from the Text Counter's folder :
 
 ```
-$ ./Text_Counter <path_of_the_file> <numbers option>
+$ ./Text_Counter <path_of_the_file> <numbers option or all characters>
 ```
 
 Note that by default the mode is "letter counting" :
 
 Example to use Text Counter in number mode :
-
 ```
 $ ./Text_Counter text.txt number
+```
+
+Exemple to use Text Counter in all characters mode :
+```
+$ ./Text_Counter text.txt all
 ```

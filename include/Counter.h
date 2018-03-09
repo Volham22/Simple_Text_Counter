@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 #include <fstream>
 #include "include/help.h"
 #include "include/counting.h"
@@ -15,6 +16,7 @@ class Counter
     Counter(string filePath);
     void PrintStatsLetter();
     void PrintStatsNumbers();
+    void PrintStatsAll();
     
     private:
     string Path;
