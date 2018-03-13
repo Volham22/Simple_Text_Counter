@@ -1,7 +1,7 @@
 # Simple Text Counter
 
 Text Counter is a small program to count differents things in a brut text file.
-The program can count differents things like letters (english alphabet), numbers and each caracters in a file.
+The program can count differents things like letters (english alphabet), numbers and each characters in a file.
 
 ## Getting Started
 
