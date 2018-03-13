@@ -9,6 +9,9 @@ Counter::Counter(string filePath)
     for(int i = 0; i<26; i++)
         LetterCount[i] = 0;
 
+    for(int i = 0; i<10; i++)
+        NumbersCount[i] = 0;
+
 }
 
 bool Counter::FileExist(ifstream &flux)
@@ -41,7 +44,7 @@ void Counter::PrintStatsLetter()
         }
 
         cout << "Number of lines found in " << Path << " " << LineCnt << endl;
-
+        
     }
     else
     {
@@ -56,9 +59,9 @@ void Counter::PrintStatsNumbers()
 
     if(FileExist(Flux))
     {
-        int *p_NumbersCount[9];
+        int *p_NumbersCount[10];
 
-        for(int i = 0; i<9; i++)
+        for(int i = 0; i<10; i++)
         {
             p_NumbersCount[i] = &NumbersCount[i];
         }
@@ -71,6 +74,7 @@ void Counter::PrintStatsNumbers()
         }
 
         cout << "Number of lines found in " << Path << " " << LineCnt << endl;
+
     }
     else
     {
