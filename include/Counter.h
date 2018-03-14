@@ -21,9 +21,9 @@ class Counter
     private:
     string Path;
     string RawText;
-    int LetterCount[26];
-    int NumbersCount[10];
-    int LineCnt = 0;
+    long int LetterCount[26];
+    long int NumbersCount[10];
+    long int LineCnt = 0;
 
     const char Letters [26] = 
     {

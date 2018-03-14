@@ -1,6 +1,6 @@
 #include "include/counting.h"
 
-void CountingLetters(ifstream &flux, string &RawText, int &LineCnt, int *LetterCount[])
+void CountingLetters(ifstream &flux, string &RawText, long int &LineCnt, long int *LetterCount[])
 {
 
     const char LetterFindLow [] = 
@@ -60,7 +60,7 @@ void CountingLetters(ifstream &flux, string &RawText, int &LineCnt, int *LetterC
     }
 }
 
-void CountingNumbers(ifstream &flux, string &RawText, int &LineCnt, int *NumbersCount[])
+void CountingNumbers(ifstream &flux, string &RawText, long int &LineCnt, long int *NumbersCount[])
 {
     const char NumbersFind [] = 
     {
@@ -94,7 +94,7 @@ void CountingNumbers(ifstream &flux, string &RawText, int &LineCnt, int *Numbers
     }
 }
 
-void CountingAll(ifstream &flux, string &RawText, int &LineCnt, vector<char> &CharList, vector<int> &FileCount)
+void CountingAll(ifstream &flux, string &RawText, long int &LineCnt, vector<char> &CharList, vector<long int> &FileCount)
 {
     bool inVector = false;
 

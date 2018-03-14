@@ -29,7 +29,7 @@ void Counter::PrintStatsLetter()
 
     if(FileExist(Flux))
     {
-        int *p_LetterCount[26];
+        long int *p_LetterCount[26];
 
         for(int i = 0; i<26; i++)
         {
@@ -59,7 +59,7 @@ void Counter::PrintStatsNumbers()
 
     if(FileExist(Flux))
     {
-        int *p_NumbersCount[10];
+        long int *p_NumbersCount[10];
 
         for(int i = 0; i<10; i++)
         {
@@ -90,7 +90,7 @@ void Counter::PrintStatsAll()
     if(FileExist(Flux))
     {
         vector<char> CharFound;
-        vector<int> CharCount;
+        vector<long int> CharCount;
 
         CountingAll(Flux, RawText, LineCnt, CharFound, CharCount);
 
