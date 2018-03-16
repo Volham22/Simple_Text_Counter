@@ -1,7 +1,11 @@
-# Files to be ignored by Git
+# Files and folder to ignore :
 
+# VS Code folder:
 .vscode/*
 .vscode/settings.json
+
+# Files :
 /Text_Counter
 /volham.txt
 /volham_en.txt
+/Text_Counter.exe

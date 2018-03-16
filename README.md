@@ -20,6 +20,8 @@ $ sudo apt-get install g++
 
 ### Installing
 
+#### Compile for a Linux system :
+
 Now the instalation
 
 Go to Text Count's folder and type :
@@ -34,6 +36,19 @@ Then you can launch Text Counter with :
 $ ./Text_Counter
 ```
 
+#### Compile for Windows :
+
+You will need mingw, to install it run the following command :
+```
+$ sudo apt-get install mingw-w64
+```
+
+Then it's easy run :
+```
+$ make windows
+```
+
+Wait a bit and a .exe file will appear in your current folder, now run it under windows in a command prompt !
 
 ## How to use ?
 
