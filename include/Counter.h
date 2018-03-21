@@ -20,7 +20,6 @@ class Counter
     
     private:
     string Path;
-    string RawText;
     long int LetterCount[26];
     long int NumbersCount[10];
     long int LineCnt = 0;

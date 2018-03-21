@@ -36,7 +36,7 @@ void Counter::PrintStatsLetter()
             p_LetterCount[i] = &LetterCount[i];
         }
 
-        CountingLetters(Flux, RawText, LineCnt, p_LetterCount);
+        CountingLetters(Flux, LineCnt, p_LetterCount);
 
         for(int i = 0; i<26; i++)
         {
@@ -66,7 +66,7 @@ void Counter::PrintStatsNumbers()
             p_NumbersCount[i] = &NumbersCount[i];
         }
 
-        CountingNumbers(Flux, RawText, LineCnt, p_NumbersCount);
+        CountingNumbers(Flux, LineCnt, p_NumbersCount);
 
         for(int i = 0; i<10; i++)
         {
@@ -92,7 +92,7 @@ void Counter::PrintStatsAll()
         vector<char> CharFound;
         vector<long int> CharCount;
 
-        CountingAll(Flux, RawText, LineCnt, CharFound, CharCount);
+        CountingAll(Flux, LineCnt, CharFound, CharCount);
 
         cout << "Number of lines found in " << Path << " " << LineCnt << endl;
 

@@ -1,6 +1,6 @@
 #include "include/counting.h"
 
-void CountingLetters(ifstream &flux, string &RawText, long int &LineCnt, long int *LetterCount[])
+void CountingLetters(ifstream &flux, long int &LineCnt, long int *LetterCount[])
 {
 
     const char LetterFindLow [] = 
@@ -25,42 +25,21 @@ void CountingLetters(ifstream &flux, string &RawText, long int &LineCnt, long in
     while(getline(flux, tempText))
     {
         LineCnt++;
-        RawText += tempText;
-    }
-
-    /* Count each letters */
-    for(int i = 0; i<RawText.length(); i++)
-    {
-        char tempLetter = RawText[i];
-
-        for(int y = 0; y<26; y++)
+        
+        for(int i = 0; i<tempText.length(); i++)
         {
-            if(tempLetter == LetterFindLow[y])
-            {
-                *LetterCount[y] += 1;
-                LetterFound = true;
-                break;
-            }
-        }
+            char tempChar = tempText[i];
 
-        if(!LetterFound)
-        {
             for(int y = 0; y<26; y++)
             {
-                if(tempLetter == LetterFindUp[y])
-                {
+                if(tempChar == LetterFindLow[y] || tempChar == LetterFindUp[y])
                     *LetterCount[y] += 1;
-                    break;
-                }
             }
         }
-
-        LetterFound = false;
-
     }
 }
 
-void CountingNumbers(ifstream &flux, string &RawText, long int &LineCnt, long int *NumbersCount[])
+void CountingNumbers(ifstream &flux, long int &LineCnt, long int *NumbersCount[])
 {
     const char NumbersFind [] = 
     {
@@ -75,28 +54,27 @@ void CountingNumbers(ifstream &flux, string &RawText, long int &LineCnt, long in
     while(getline(flux, tempText))
     {
         LineCnt++;
-        RawText += tempText;
-    }
 
-    /* Counting numbers each numbers */
-    for(int i = 0; i<RawText.length(); i++)
-    {
-        char tempLetter = RawText[i];
-
-        for(int y = 0; y<10; y++)
+        for(int i = 0; i<tempText.length(); i++)
         {
-            if(tempLetter == NumbersFind[y])
+            char tempChar = tempText[i];
+
+            for(int y = 0; y<10; y++)
             {
-                *NumbersCount[y] += 1;
-                break;
+                if(tempChar == NumbersFind[y])
+                    *NumbersCount[y] += 1;
             }
         }
     }
+
+    while(getline(flux, tempText))
+        cout << tempText << endl;
 }
 
-void CountingAll(ifstream &flux, string &RawText, long int &LineCnt, vector<char> &CharList, vector<long int> &FileCount)
+void CountingAll(ifstream &flux, long int &LineCnt, vector<char> &CharList, vector<long int> &FileCount)
 {
     bool inVector = false;
+    const int firstChar = flux.tellg();
 
     /* Load lines into a string */
     string tempText;
@@ -105,54 +83,50 @@ void CountingAll(ifstream &flux, string &RawText, long int &LineCnt, vector<char
 
     while(getline(flux, tempText))
     {
-        RawText += tempText;
         LineCnt ++;
-    }
 
-    /* Counting and Adding each char in vector */
-    for(int i = 0; i<RawText.length(); i++)
-    {
-        char tempChar = RawText[i];
-
-        /* Finding all differents char in Files */
-        for(int y = 0; y<CharList.size(); y++)
+        for(int i = 0; i<tempText.length(); i++)
         {
-            if(tempChar == CharList[y])
+            char tempChar = tempText[i];
+
+            for(int y = 0; y<CharList.size(); y++)
             {
-                inVector = true;
-                break;
+                if(tempChar == CharList[y])
+                {
+                    inVector = true;
+                    break;
+                }
+                else
+                {
+                    inVector = false;
+                }
             }
-            else
+
+            if(!inVector)
             {
-                inVector = false;
+                CharList.push_back(tempChar);
+                FileCount.push_back(0);
             }
         }
-
-        if(!inVector)
-        {
-            CharList.push_back(tempChar);
-        }
     }
 
-    cout << "Found : " << CharList.size() << " differents characters in file, counting ..." << endl;
+    cout << "Found: " << CharList.size() << " differents characters" << endl;
+    flux.clear();
+    flux.seekg(firstChar, ios::beg);
 
-    /* Adding int according to the number of char in Charlist */ 
-    for(int i = 0; i<CharList.size(); i++)
+    while(getline(flux, tempText))
     {
-        FileCount.push_back(0);
-    }
-
-    /* Counting each char in file */
-    for(int i = 0; i<RawText.length(); i++)
-    {
-        char tempChar = RawText[i];
-
-        for(int y = 0; y<CharList.size(); y++)
+        for(int i = 0; i<tempText.length(); i++)
         {
-            if(tempChar == CharList[y])
+            char tempChar = tempText[i];
+
+            for(int y = 0; y<CharList.size(); y++)
             {
-                FileCount[y]++;
-                break;
+                if(tempChar == CharList[y])
+                {
+                    FileCount[y]++;
+                    break;
+                }
             }
         }
     }
