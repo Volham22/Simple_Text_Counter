@@ -36,19 +36,19 @@ $ make all
 
 You will need cmake, there is two ways to use cmake under windows :
 
-    1. You can use cmake to generate makefile for MinGW :
-    ```
-    $ cmake -G"MinGW Makefiles"
-    ```
+You can use cmake to generate makefile for MinGW :
+```
+$ cmake -G"MinGW Makefiles"
+```
 
-    2. You can also use cmake to create a Code::Block or Visual Studio project to build it.
-    ```
-    $ cmake -G "Visual Studio 17" # For Visual Studio 2017
-    ```
-    or to create a Code::Blocks project :
-    ```
-    $ cmake -G"CodeBlocks - Unix Makefiles"
-    ```
+You can also use cmake to create a Code::Block or Visual Studio project to build it.
+```
+$ cmake -G "Visual Studio 17" # For Visual Studio 2017
+```
+or to create a Code::Blocks project :
+```
+$ cmake -G"CodeBlocks - Unix Makefiles"
+```
     
 
 ## How to use ?
