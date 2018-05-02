@@ -1,11 +1,17 @@
 # Files and folder to ignore :
 
 # VS Code folder:
-.vscode/*
-.vscode/settings.json
+.vscode/
 
 # Files :
 /Text_Counter
 /volham.txt
 /volham_en.txt
 /Text_Counter.exe
+
+# CMake Files and folder :
+/*.txt
+!/CMakeLists.txt
+/Makefile
+/*.cmake
+CMakeFiles/

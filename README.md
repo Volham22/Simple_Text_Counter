@@ -12,43 +12,44 @@ $ git clone https://github.com/Volham22/Simple_Text_Counter.git
 
 ### Prerequisites
 
-To build Text Counter you will need a C++ compiler like g++
+To build Text Counter you will need a C++ compiler like g++ and cmake
 
 ```
-$ sudo apt-get install g++
+$ sudo apt-get install g++ cmake
 ```
 
 ### Installing
 
 #### Compile for a Linux system :
 
-Now the instalation
+In the Text Counter folder type :
+```
+$ cmake .
+```
 
-Go to Text Count's folder and type :
-
+Then you can build Text Counter :
 ```
 $ make all
 ```
 
-Then you can launch Text Counter with :
-
-```
-$ ./Text_Counter
-```
-
 #### Compile for Windows :
 
-You will need mingw, to install it run the following command :
-```
-$ sudo apt-get install mingw-w64
-```
+You will need cmake, there is two ways to use cmake under windows :
 
-Then it's easy run :
-```
-$ make windows
-```
+    1. You can use cmake to generate makefile for MinGW :
+    ```
+    cmake -G"MinGW Makefiles"
+    ```
 
-Wait a bit and a .exe file will appear in your current folder, now run it under windows in a command prompt !
+    2. You can also use cmake to create a Code::Block or Visual Studio project to build it.
+    ```
+    cmake -G "Visual Studio 17" # For Visual Studio 2017
+    ````
+    or to create a Code::Blocks project :
+    ```
+    cmake -G"CodeBlocks - Unix Makefiles"
+    ```
+    
 
 ## How to use ?
 
