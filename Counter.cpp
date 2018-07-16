@@ -96,7 +96,7 @@ void Counter::PrintStatsAll()
 
         cout << "Number of lines found in " << Path << " " << LineCnt << endl;
 
-        for(int i = 0; i<CharFound.size(); i++)
+        for(unsigned int i = 0; i<CharFound.size(); i++)
         {
             cout << CharFound[i] << " : " << CharCount[i] << endl;
         }

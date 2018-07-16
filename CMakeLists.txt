@@ -2,6 +2,9 @@
 
 cmake_minimum_required(VERSION 2.4)
 
+set(CMAKE_CXX_FLAGS_DEBUG "-Wall -Werror")
+set(CMAKE_CXX_FLAGS_RELEASE "-02 -Wall")
+
 set(SRC
     Counter.cpp
     counting.cpp

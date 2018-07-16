@@ -15,7 +15,6 @@ void CountingLetters(ifstream &flux, long int &LineCnt, long int *LetterCount[])
         'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
     };
 
-    bool LetterFound = false;
 
     /* Load lines into a string */
     string tempText;
@@ -26,7 +25,7 @@ void CountingLetters(ifstream &flux, long int &LineCnt, long int *LetterCount[])
     {
         LineCnt++;
         
-        for(int i = 0; i<tempText.length(); i++)
+        for(unsigned int i = 0; i<tempText.length(); i++)
         {
             char tempChar = tempText[i];
 
@@ -55,7 +54,7 @@ void CountingNumbers(ifstream &flux, long int &LineCnt, long int *NumbersCount[]
     {
         LineCnt++;
 
-        for(int i = 0; i<tempText.length(); i++)
+        for(unsigned int i = 0; i<tempText.length(); i++)
         {
             char tempChar = tempText[i];
 
@@ -85,11 +84,11 @@ void CountingAll(ifstream &flux, long int &LineCnt, vector<char> &CharList, vect
     {
         LineCnt ++;
 
-        for(int i = 0; i<tempText.length(); i++)
+        for(unsigned int i = 0; i<tempText.length(); i++)
         {
             char tempChar = tempText[i];
 
-            for(int y = 0; y<CharList.size(); y++)
+            for(unsigned int y = 0; y<CharList.size(); y++)
             {
                 if(tempChar == CharList[y])
                 {
@@ -116,11 +115,11 @@ void CountingAll(ifstream &flux, long int &LineCnt, vector<char> &CharList, vect
 
     while(getline(flux, tempText))
     {
-        for(int i = 0; i<tempText.length(); i++)
+        for(unsigned int i = 0; i<tempText.length(); i++)
         {
             char tempChar = tempText[i];
 
-            for(int y = 0; y<CharList.size(); y++)
+            for(unsigned int y = 0; y<CharList.size(); y++)
             {
                 if(tempChar == CharList[y])
                 {
